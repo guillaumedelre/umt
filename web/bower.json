@@ -1,0 +1,21 @@
+{
+  "name": "UMT",
+  "version": "1.0.0",
+  "authors": [
+    "Guillaume Delré <delre.guillaume@gmail.com>"
+  ],
+  "description": "Ressources tierces du projet UMT",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "fontawesome": "*",
+    "boostrap": "*",
+    "jquery": "*",
+    "jquery-ui": "*",
+    "tether": "*",
+    "tablesorter": "*"
+  }
+}
