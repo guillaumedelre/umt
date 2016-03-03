@@ -1,0 +1,5 @@
+shipment:
+    type: rest
+    #name_prefix: api_shipment_
+    #prefix: shipment
+    resource: "@ApiBundle/Controller/ShipmentController.php"

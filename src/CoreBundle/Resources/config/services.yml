@@ -1,0 +1,101 @@
+parameters:
+    core.entity.country.class: CoreBundle:Country
+    core.entity.customer.class: CoreBundle:Customer
+    core.entity.permission.class: CoreBundle:Permission
+    core.entity.preference.class: CoreBundle:Preference
+    core.entity.question.class: CoreBundle:Question
+    core.entity.response.class: CoreBundle:Response
+    core.entity.role.class: CoreBundle:Role
+    core.entity.route.class: CoreBundle:Route
+    core.entity.shipment.class: CoreBundle:Shipment
+    core.entity.shipmentdefinition.class: CoreBundle:ShipmentDefinition
+    core.entity.shipmentlog.class: CoreBundle:ShipmentLog
+    core.entity.status.class: CoreBundle:Status
+    core.entity.user.class: CoreBundle:User
+
+    core.repository.abstract.class: CoreBundle\Entity\Repository\AbstractRepository
+    core.repository.country.class: CoreBundle\Entity\Repository\CountryRepository
+    core.repository.customer.class: CoreBundle\Entity\Repository\CustomerRepository
+    core.repository.permission.class: CoreBundle\Entity\Repository\PermissionRepository
+    core.repository.preference.class: CoreBundle\Entity\Repository\PreferenceRepository
+    core.repository.question.class: CoreBundle\Entity\Repository\QuestionRepository
+    core.repository.response.class: CoreBundle\Entity\Repository\ResponseRepository
+    core.repository.role.class: CoreBundle\Entity\Repository\RoleRepository
+    core.repository.route.class: CoreBundle\Entity\Repository\RouteRepository
+    core.repository.shipment.class: CoreBundle\Entity\Repository\ShipmentRepository
+    core.repository.shipmentdefinition.class: CoreBundle\Entity\Repository\ShipmentDefinitionRepository
+    core.repository.shipmentlog.class: CoreBundle\Entity\Repository\ShipmentLogRepository
+    core.repository.status.class: CoreBundle\Entity\Repository\StatusRepository
+    core.repository.user.class: CoreBundle\Entity\Repository\UserRepository
+
+services:
+    # repository as services
+    core.repository.abstract:
+        class: %core.repository.abstract.class%
+        abstract: true
+        factory: ["@doctrine.orm.default_entity_manager", "getRepository"]
+    core.repository.country:
+        class: %core.repository.country.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.country.class%
+    core.repository.customer:
+        class: %core.repository.customer.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.customer.class%
+    core.repository.permission:
+        class: %core.repository.permission.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.permission.class%
+    core.repository.preference:
+        class: %core.repository.preference.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.preference.class%
+    core.repository.question:
+        class: %core.repository.question.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.question.class%
+    core.repository.response:
+        class: %core.repository.response.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.response.class%
+    core.repository.role:
+        class: %core.repository.role.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.role.class%
+    core.repository.route:
+        class: %core.repository.route.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.route.class%
+    core.repository.shipment:
+        class: %core.repository.shipment.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.shipment.class%
+    core.repository.shipmentdefinition:
+        class: %core.repository.shipmentdefinition.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.shipmentdefinition.class%
+    core.repository.shipmentlog:
+        class: %core.repository.shipmentlog.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.shipmentlog.class%
+    core.repository.status:
+        class: %core.repository.status.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.status.class%
+    core.repository.user:
+        class: %core.repository.user.class%
+        parent: core.repository.abstract
+        arguments:
+            - %core.entity.user.class%
