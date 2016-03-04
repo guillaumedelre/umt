@@ -11,5 +11,5 @@ namespace CoreBundle\Entity\Repository;
 
 class ShipmentRepository extends AbstractRepository
 {
-    
+
 }

@@ -173,8 +173,6 @@ class Shipment
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shipment_definition_id", referencedColumnName="id")
      * })
-     *
-     * @Expose
      */
     private $shipmentDefinition;
 
@@ -185,8 +183,6 @@ class Shipment
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
-     *
-     * @Expose
      */
     private $user;
 

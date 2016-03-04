@@ -11,6 +11,11 @@ use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
+/**
+ * Class ShipmentController
+ * @package ApiBundle\Controller
+ * @see http://symfony.com/doc/current/bundles/FOSRestBundle/param_fetcher_listener.html
+ */
 class ShipmentController extends FOSRestController implements ClassResourceInterface
 {
     /**
@@ -27,8 +32,7 @@ class ShipmentController extends FOSRestController implements ClassResourceInter
      *  }
      * )
      *
-     * @see http://symfony.com/doc/current/bundles/FOSRestBundle/param_fetcher_listener.html
-     *
+     * @Rest\QueryParam(name="sort", requirements="(asc|desc)", allowBlank=false, default="desc", description="Sort direction")
      * @Rest\QueryParam(name="limit", requirements="\d+", default="20", strict=true, nullable=true, description="Item count limit")
      * @Rest\QueryParam(name="page", requirements="\d+", default="0", strict=true, nullable=true, description="Current page of collection")
      */
@@ -36,8 +40,9 @@ class ShipmentController extends FOSRestController implements ClassResourceInter
     {
         $limit   = $paramFetcher->get('limit');
         $page    = $paramFetcher->get('page');
+        $sort    = $paramFetcher->get('sort');
 
-        $collection = $this->get('core.repository.shipment')->findBy([], [], $limit, $page * $limit);
+        $collection = $this->get('core.repository.shipment')->findBy([], ['updatedAt' => $sort], $limit, $page * $limit);
 
         if(!is_array($collection)) {
             throw $this->createNotFoundException();

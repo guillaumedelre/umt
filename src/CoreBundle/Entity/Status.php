@@ -23,8 +23,6 @@ class Status
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     *
-     * @Expose
      */
     private $id;
 
@@ -44,8 +42,6 @@ class Status
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="next", referencedColumnName="id")
      * })
-     *
-     * @Expose
      */
     private $next;
 
@@ -54,8 +50,6 @@ class Status
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      * @Gedmo\Timestampable(on="create")
-     *
-     * @Expose
      */
     private $createdAt;
 
@@ -64,8 +58,6 @@ class Status
      *
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="update")
-     *
-     * @Expose
      */
     private $updatedAt;
 
