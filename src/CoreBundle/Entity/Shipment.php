@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Expose;
  * Shipments
  *
  * @ORM\Table(name="shipments", indexes={@ORM\Index(name="fk_label_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_label_shipment_definition1_idx", columns={"shipment_definition_id"}), @ORM\Index(name="fk_shipments_statuses1", columns={"status_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\ShipmentRepository")
  *
  * @ExclusionPolicy("all")
  */

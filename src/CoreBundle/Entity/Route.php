@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Routes
  *
  * @ORM\Table(name="routes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\RouteRepository")
  */
 class Route
 {

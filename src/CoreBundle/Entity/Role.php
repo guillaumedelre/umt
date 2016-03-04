@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Expose;
  * Roles
  *
  * @ORM\Table(name="roles")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\RoleRepository")
  *
  * @ExclusionPolicy("all")
  */

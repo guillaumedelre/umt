@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Preferences
  *
  * @ORM\Table(name="preferences")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\PreferenceRepository")
  */
 class Preference
 {

@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Permissions
  *
  * @ORM\Table(name="permissions", indexes={@ORM\Index(name="fk_permission_role1_idx", columns={"role_id"}), @ORM\Index(name="fk_permission_route1_idx", columns={"route_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\PermissionRepository")
  */
 class Permission
 {

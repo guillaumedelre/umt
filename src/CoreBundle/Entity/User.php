@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Expose;
  * Users
  *
  * @ORM\Table(name="users", indexes={@ORM\Index(name="fk_user_role1_idx", columns={"role_id"}), @ORM\Index(name="fk_user_customer1_idx", columns={"customer_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\UserRepository")
  *
  * @ExclusionPolicy("all")
  */

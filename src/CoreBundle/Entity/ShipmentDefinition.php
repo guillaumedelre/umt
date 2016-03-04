@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * ShipmentDefinitions
  *
  * @ORM\Table(name="shipment_definitions", indexes={@ORM\Index(name="country_id", columns={"country_id"}), @ORM\Index(name="customer_id", columns={"customer_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\ShipmentDefinitionRepository")
  */
 class ShipmentDefinition
 {

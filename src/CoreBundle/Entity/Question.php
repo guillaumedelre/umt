@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Expose;
  * Questions
  *
  * @ORM\Table(name="questions", indexes={@ORM\Index(name="role_id", columns={"role_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\QuestionRepository")
  *
  * @ExclusionPolicy("all")
  */

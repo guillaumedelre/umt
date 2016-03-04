@@ -5,10 +5,10 @@ namespace ApiBundle\Controller;
 use CoreBundle\Entity\Repository\AbstractRepository;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
-use Symfony\Component\HttpFoundation\Request;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class ShipmentController extends FOSRestController implements ClassResourceInterface
@@ -21,20 +21,21 @@ class ShipmentController extends FOSRestController implements ClassResourceInter
      *  description="Récupère une collection paginée de shipments",
      *  section="Shipment",
      *  output="CoreBundle\Entity\Shipment",
-     *  parameters={
-     *      {"name"="limit", "dataType"="integer", "required"=false, "description"="Nombre d'éléments retournés (20 par défaut)"},
-     *      {"name"="page", "dataType"="integer", "required"=false, "description"="Numéro de la page souhaitée (la première page a la valeur 0)"}
-     *  },
      *  statusCodes={
      *      200="Ok",
      *      500="Internal error"
      *  }
      * )
+     *
+     * @see http://symfony.com/doc/current/bundles/FOSRestBundle/param_fetcher_listener.html
+     *
+     * @Rest\QueryParam(name="limit", requirements="\d+", default="20", strict=true, nullable=true, description="Item count limit")
+     * @Rest\QueryParam(name="page", requirements="\d+", default="0", strict=true, nullable=true, description="Current page of collection")
      */
-    public function cgetAction(Request $request)
+    public function cgetAction(ParamFetcher $paramFetcher)
     {
-        $limit  = ($request->query->get('limit')) ? $request->query->get('limit') : AbstractRepository::DEFAULT_LIMIT;
-        $page = ($request->query->get('page')) ? $request->query->get('page') : 0;
+        $limit   = $paramFetcher->get('limit');
+        $page    = $paramFetcher->get('page');
 
         $collection = $this->get('core.repository.shipment')->findBy([], [], $limit, $page * $limit);
 

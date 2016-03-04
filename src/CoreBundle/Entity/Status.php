@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\Expose;
  * Statuses
  *
  * @ORM\Table(name="statuses", indexes={@ORM\Index(name="fk_statuses_statuses1", columns={"next"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\StatusRepository")
  *
  * @ExclusionPolicy("all")
  */

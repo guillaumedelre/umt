@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Countries
  *
  * @ORM\Table(name="countries")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Entity\Repository\CountryRepository")
  */
 class Country
 {
